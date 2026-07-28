@@ -22,13 +22,29 @@ export function getProductsByCategory(req, res) {
 
 // Endpoint para agregar nuevo producto
 export function createProduct(req, res) {
+    const { category, name, price, image, description } = req.body;
+
+    // Validación: campos obligatorios
+    if (!category || !name || price === undefined || !image || !description) {
+        return res.status(400).json({
+            message: "Faltan campos obligatorios: category, name, price, image, description"
+        });
+    }
+
+    // Validación: price debe ser un número positivo
+    if (typeof price !== "number" || price <= 0) {
+        return res.status(400).json({
+            message: "El precio debe ser un número mayor que 0"
+        });
+    }
+
     const newProduct = {
         id: products.length + 1,
-        category: req.body.category,
-        name: req.body.name,
-        price: req.body.price,
-        image: req.body.image,
-        description: req.body.description
+        category,
+        name,
+        price,
+        image,
+        description
     };
     products.push(newProduct);
     res.status(201).json(newProduct);

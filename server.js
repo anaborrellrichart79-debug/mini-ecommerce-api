@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { json } from "express";
 import cors from "cors";
 const app = express();
@@ -8,17 +9,10 @@ app.use(json());
 
 // Llamar a rutas
 import productsRoutes from "./routes/products-routes.js";
+import checkoutRoutes from "./routes/checkout-routes.js";
 
-app.use("/products.js", productsRoutes);
+app.use("/api/products", productsRoutes);
+app.use("/api/checkout", checkoutRoutes);
 
-app.get("/products.js", (_req, res) => {
-    res.json([
-        {id: 1, title: "balón", price: 20},
-        {id: 2, title:"Equipación", price: 35}
-    ]);
-});
-
-
-app.listen(3000, () => 
-    console.log("API corriendo en Http://localhost:3000"));
-
+app.listen(PORT, () =>
+    console.log(`API corriendo en http://localhost:${PORT}`));

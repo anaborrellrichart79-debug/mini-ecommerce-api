@@ -54,19 +54,27 @@ export function createProduct(req, res) {
 export function upDateProduct(req, res) {
     const productIndex = products.findIndex(p => p.id === parseInt(req.params.id));
 
-    if (productIndex !== -1) {
-        products[productIndex] = {
-            ...products[productIndex],
-            category: req.body.category || products[productIndex].category,
-            name: req.body.name || products[productIndex].name,
-            price: req.body.price || products[productIndex].price,
-            image: req.body.image || products[productIndex].image,
-            description: req.body.description || products[productIndex].description
-        };
-        res.json(products[productIndex]);
-    } else {
-        res.status(404).json({ message: "Producto no encontrado" });
+    if (productIndex === -1) {
+        return res.status(404).json({ message: "Producto no encontrado" });
     }
+
+    const { price } = req.body;
+
+    if (price !== undefined && (typeof price !== "number" || price <= 0)) {
+        return res.status(400).json({
+            message: "El precio debe ser un número mayor que 0"
+        });
+    }
+
+    products[productIndex] = {
+        ...products[productIndex],
+        category: req.body.category || products[productIndex].category,
+        name: req.body.name || products[productIndex].name,
+        price: req.body.price || products[productIndex].price,
+        image: req.body.image || products[productIndex].image,
+        description: req.body.description || products[productIndex].description
+    };
+    res.json(products[productIndex]);
 }
 
 // Endpoint para eliminar producto

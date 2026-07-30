@@ -20,6 +20,15 @@ const products = [
     },
     {
         id:3,
+        category: "balones",
+        name: "Balón adidas UEFA Champions League",
+        title: "Balón adidas UEFA Champions League 2026-2027 League",
+        price: 20,
+        image:"https://www.futbolemotion.com/imagesarticulos/333767/medianas/balon-adidas-uefa-champions-league-2026-2027-league-blanco-1.webp",
+        description: "Balón de futbol para partidos oficiales adidas de la fase de liga 26/27 de la UEFA Champions League."
+    },
+    {
+        id:4,
         category: "equipaciones",
         name: "camiseta de entrenamiento del Real Madrid 2025/2026",
         title: "camiseta de entrenamiento del Real Madrid 2025/2026",
@@ -28,13 +37,22 @@ const products = [
         description: "Camiseta de entrenamiento del Real Madrid 2025/2026, con diseño único y material de alta calidad para un rendimiento óptimo en el campo."
     },
     {
-        id:4,
+        id:5,
         category: "accesorios",
         title: "Espinilleras Nike Mercurial Lite",
         name: "Espinilleras Nike Mercurial Lite",
         price: 25,
         image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRhEqMKQofkneT6Gq92ua0MjP8KnnioLqkD0p7ktcAhZ1lQLHegR4lH1T16ylQQ6ktBleS51BgzR4G9MbBLi8HRgb9LuNpaVDcNfeVR27Yry6AJXH2ujrIjMg",
         description: "Espinilleras Nike Mercurial Lite, con diseño ligero y protección confiable para los jugadores que buscan comodidad y seguridad dentro del campo."
+    },
+    {
+        id:6,
+        category: "accesorios",
+        title: "Calcetines 3.0 Preformance",
+        name: "Enhancing Cushion",
+        price: 25.99,
+        image: "https://www.futbolemotion.com/imagesarticulos/156576/medianas/calcetines-trusox-3.0-performance-enhancing-cushion-verde-1.webp",
+        description: "Calcetines con planta antideslizantes ideales para el agarre con las botas de fútbol"
     }
 ];
 
